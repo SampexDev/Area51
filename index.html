@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>$A51 – Alien Musk & The 51G Vault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="$A51 – The meme coin powered by Alien Musk, 51G WiFi and the Area 51 Vault Hunt."
+  />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020818;
+      --bg-card: #020b1f;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.18);
+      --accent-strong: #4ade80;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --danger: #f97316;
+      --border: rgba(148, 163, 184, 0.3);
+      --radius-xl: 22px;
+      --radius-lg: 18px;
+      --radius-sm: 999px;
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.55);
+      --blur: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", sans-serif;
+      background: radial-gradient(circle at top, #020d26 0, #020617 45%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 18px 72px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: radial-gradient(circle at top, rgba(2, 8, 23, 0.96), rgba(2, 6, 23, 0.96));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #4ade80, #22c55e 40%, #4c1d95 100%);
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: inherit;
+      border: 1px solid rgba(15, 23, 42, 0.7);
+      box-shadow: inset 0 0 18px rgba(15, 23, 42, 0.8);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: -3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      padding: 4px 0;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      padding: 7px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.16s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #4ade80, #16a34a);
+      color: #022c22;
+      box-shadow: 0 12px 35px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.5);
+    }
+
+    .btn-outline {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 26px;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.95);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #4ade80, #22d3ee, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+    }
+
+    .hero-subtitle strong {
+      color: var(--accent-strong);
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    .meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      color: #6b7280;
+    }
+
+    .meta-value {
+      font-weight: 600;
+    }
+
+    /* Hero right card */
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, #020c26, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 60%;
+      height: 95%;
+      background: radial-gradient(circle at center, rgba(34, 197, 94, 0.35), transparent 60%);
+      opacity: 0.9;
+      filter: blur(4px);
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .coin-preview {
+      border-radius: 999px;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 10px;
+      background: radial-gradient(circle at 30% 20%, #4ade80, #16a34a 40%, #1e293b 100%);
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.5), 0 0 32px rgba(34, 197, 94, 0.75);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .coin-preview::after {
+      content: "$A51";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: #022c22;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-card-title {
+      text-align: center;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-sub {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+      margin-bottom: 10px;
+      font-size: 0.78rem;
+    }
+
+    .stat-card {
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 8px 9px;
+    }
+
+    .stat-label {
+      color: #9ca3af;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .stat-value {
+      font-weight: 600;
+      font-size: 0.86rem;
+    }
+
+    .stat-pill {
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.15);
+      color: var(--accent-strong);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hero-card-footer span strong {
+      color: #e5e7eb;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 40px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.3fr);
+      gap: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .section-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, #020b1f, #020617 35%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 16px 16px 14px;
+      box-shadow: 0 14px 45px rgba(0, 0, 0, 0.6);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 0.76rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #cbd5f5;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* Timeline / roadmap */
+    .timeline {
+      display: grid;
+      gap: 10px;
+      font-size: 0.86rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .timeline-marker {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 2px solid rgba(148, 163, 184, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .timeline-marker-inner {
+      width: 9px;
+      height: 9px;
+      border-radius: inherit;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+    }
+
+    .timeline-content h4 {
+      font-size: 0.9rem;
+      margin-bottom: 3px;
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* List */
+    ul {
+      margin-left: 1.1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    ul li + li {
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      margin-top: 40px;
+      padding-top: 18px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-strong);
+    }
+
+    /* Small helper */
+    .tag-warning {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.5);
+      color: #fecaca;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        margin-left: auto;
+      }
+
+      main {
+        padding-inline: 16px;
+      }
+
+      .page {
+        padding-inline: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div>
+          <div class="logo-text-main">$A51</div>
+          <div class="logo-text-sub">Alien Musk • Area 51 • 51G</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#lore">Lore</a>
+        <a href="#vault">Vault Hunt</a>
+        <a href="#token">Token</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#" class="btn btn-outline">Join Telegram</a>
+        <a href="#" class="btn btn-primary">Launch on Jupiter</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>Transmission online • 51G link stable</span>
+        </div>
+        <h1 class="hero-title">
+          <span>Alien Musk</span><br />
+          & the <span>Area&nbsp;51 Vault</span>
+        </h1>
+        <p class="hero-subtitle">
+          $A51 is the meme coin powered by a
+          <strong>crash-landed Martian engineer</strong>,
+          illegal <strong>51G WiFi</strong>, and the
+          <strong>Area&nbsp;51 Vault Hunt</strong> – a riddle-driven race to unlock
+          his starship and send him back to Mars.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#" class="btn btn-primary">Buy on Jupiter</a>
+          <a href="#" class="btn btn-outline">Join the A51 Agents</a>
+        </div>
+
+        <div class="hero-meta-row">
+          <div class="meta-pill">
+            <div class="meta-label">Chain</div>
+            <div class="meta-value">Solana</div>
+          </div>
+          <div class="meta-pill">
+            <div class="meta-label">Ticker</div>
+            <div class="meta-value">$A51</div>
+          </div>
+          <div class="meta-pill">
+            <div class="meta-label">Status</div>
+            <div class="meta-value">Transmission: Live</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-inner">
+          <div class="coin-preview"></div>
+          <h2 class="hero-card-title">$A51 – AREA 51 MEME COIN</h2>
+          <p class="hero-card-sub">
+            Born from a crashed T.E.S.L.A. (Trans Extraterrestrial Star-Link
+            Automobile) and a bored Martian with god-tier WiFi.
+          </p>
+
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-label">Supply</div>
+              <div class="stat-value">51,000,000</div>
+              <div class="stat-pill">No team tokens</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Tax</div>
+              <div class="stat-value">X% / X%</div>
+              <div class="stat-pill">Adjust to your setup</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Vault</div>
+              <div class="stat-value">Unlocked via riddles</div>
+              <div class="stat-pill">Community event</div>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <span>Contract: <strong>CA COMING SOON</strong></span>
+            <span>Powered by <strong>51G</strong></span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Lore -->
+    <section id="lore">
+      <div class="section-label">Lore</div>
+      <div class="section-title">Who the hell is Alien Musk?</div>
+      <div class="section-grid">
+        <div class="card">
+          <h3>The Martian engineer who chose chaos</h3>
+          <p>
+            Alien Musk is a <strong>banished Martian engineer</strong> who left
+            his homeworld in a personal starship called the
+            <strong>T.E.S.L.A.</strong> – a Trans Extraterrestrial Star-Link
+            Automobile. He pushed it a little too hard, tried to watch memes at
+            faster-than-light speed, and
+            <strong>crashed straight into the Nevada desert.</strong>
+          </p>
+          <p style="margin-top: 8px;">
+            Humans panicked and built a whole military base around him. He just
+            moved in, called it his <strong>“desert crib”</strong> and renamed
+            it <strong>Area&nbsp;51</strong> – Martian for “temporary home with
+            free electricity”.
+          </p>
+          <p style="margin-top: 8px;">
+            Inside the wrecked T.E.S.L.A., one thing still worked: the alien
+            WiFi core. He ripped it out, plugged it into the base, and created
+            <strong>51G</strong> – a forbidden internet connection he now uses
+            to roast humans, broadcast riddles and coordinate the
+            <strong>$A51 community</strong>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Why $A51 exists</h3>
+          <p>
+            His goal is simple: <strong>repair the T.E.S.L.A.</strong>,
+            <strong>unlock the Vault</strong> under Area&nbsp;51, route through
+            <strong>Jupiter</strong> and go back to Mars.
+          </p>
+          <p style="margin-top: 6px;">
+            $A51 is the token of the
+            <strong>Agents of Area 51</strong> – the ones helping him:
+          </p>
+          <ul style="margin-top: 6px;">
+            <li>Decode his 51G transmissions</li>
+            <li>Hunt down the seed-words to unlock the Vault</li>
+            <li>Spread the A51 meme across X and Telegram</li>
+            <li>Enjoy the pure chaos of a horny, arrogant Martian landlord</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Martian lore</span>
+            <span class="pill">51G transmissions</span>
+            <span class="pill">Riddle-driven quests</span>
+            <span class="pill">Jupiter Launchpad</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vault Hunt -->
+    <section id="vault">
+      <div class="section-label">Vault Hunt</div>
+      <div class="section-title">The A51 Vault & Riddle Hunt</div>
+      <div class="section-grid">
+        <div class="card">
+          <h3>The Vault under his bunk bed</h3>
+          <p>
+            Buried beneath Alien Musk’s Area&nbsp;51 bunk is the
+            <strong>A51 Vault</strong> – a locked chamber of Martian hardware,
+            T.E.S.L.A. components, questionable snacks, and whatever else he
+            doesn’t want Earth touching.
+          </p>
+          <p style="margin-top: 8px;">
+            To open it, the community must collect
+            <strong>12 encrypted seed-words</strong> hidden inside his riddles,
+            memes and transmissions. Every solved riddle brings the Vault closer
+            to unlocking and triggers new events, rewards or chaos drops for
+            $A51 holders – up to you how you design this.
+          </p>
+        </div>
+        <div class="card">
+          <h3>How the hunt works</h3>
+          <ul>
+            <li>
+              Alien Musk bot posts <strong>daily or weekly riddles</strong> in
+              Telegram & on X.
+            </li>
+            <li>
+              Community solves them together to reveal
+              <strong>Vault seed-fragments</strong>.
+            </li>
+            <li>
+              Certain milestones (holder count, MC, volume, raids) can unlock
+              new clues or “Vault levels”.
+            </li>
+            <li>
+              You can tie real rewards, airdrops, or lore reveals to the Vault
+              progress.
+            </li>
+          </ul>
+          <p style="margin-top: 8px;" class="muted">
+            The Vault is the core game loop: it gives people a reason to stay,
+            play and meme even when candles go sideways.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Token / How to Buy -->
+    <section id="token">
+      <div class="section-label">Token</div>
+      <div class="section-title">$A51 Token & How to Buy</div>
+      <div class="section-grid">
+        <div class="card">
+          <h3>Token basics</h3>
+          <ul>
+            <li><strong>Chain:</strong> Solana</li>
+            <li><strong>Ticker:</strong> $A51</li>
+            <li><strong>Supply:</strong> 51,000,000 (adjust if needed)</li>
+            <li><strong>Type:</strong> Pure meme, pure chaos</li>
+            <li><strong>Utility:</strong> Lore, status, access, events, Vault</li>
+          </ul>
+          <p style="margin-top: 8px;" class="muted">
+            Add your real tokenomics here: % to liquidity, % to marketing,
+            % to Vault rewards, etc. Keep it simple and transparent – the lore
+            is wild, but the numbers shouldn’t be.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>How to buy</h3>
+          <ol style="margin-left: 1.1rem; font-size: 0.9rem; color: var(--muted);">
+            <li>Get a Solana wallet (Phantom, Backpack, etc.).</li>
+            <li>Fund it with SOL via your preferred exchange or on-ramp.</li>
+            <li>Click “Launch on Jupiter” or open Jupiter directly.</li>
+            <li>Paste the <strong>$A51 contract address</strong>.</li>
+            <li>Swap SOL → $A51 and join the Agents of Area&nbsp;51.</li>
+          </ol>
+          <p style="margin-top: 8px;" class="muted">
+            Always double-check contract addresses from official channels.
+            Alien Musk might troll you, but scammers definitely will.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap">
+      <div class="section-label">Roadmap</div>
+      <div class="section-title">Transmission Roadmap</div>
+      <div class="section-grid">
+        <div class="card">
+          <h3>Phase 1 – The Crash & First Signal</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-marker-inner"></div>
+              </div>
+              <div class="timeline-content">
+                <h4>Crash-lore & branding</h4>
+                <p>
+                  Finalize Alien Musk, TESLA, 51G, Area&nbsp;51 & Vault lore.
+                  Launch social channels, website, and the A51 agents hub.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-marker-inner"></div>
+              </div>
+              <div class="timeline-content">
+                <h4>Jupiter Launch</h4>
+                <p>
+                  Launch $A51 via Jupiter. Initial raiding, meme storm, and
+                  early riddle drops from the 51G bunker.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-marker-inner"></div>
+              </div>
+              <div class="timeline-content">
+                <h4>Vault Hunt kicks off</h4>
+                <p>
+                  Start the first official Vault Hunt: early seed-fragments,
+                  community puzzles, and lore-driven mini-events.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Phase 2+ – Culture, Chaos & Cult</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-marker-inner"></div>
+              </div>
+              <div class="timeline-content">
+                <h4>Bot & Game Expansion</h4>
+                <p>
+                  More advanced Alien Musk AI, extra riddle modes, mini-games,
+                  meme contests, agent ranks, and lore unlocks.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-marker-inner"></div>
+              </div>
+              <div class="timeline-content">
+                <h4>Collabs & cross-lore</h4>
+                <p>
+                  Integrate with other Solana/Jupiter projects, cross-memes,
+                  themed raids and joint events, maybe even real-world drops.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-marker-inner"></div>
+              </div>
+              <div class="timeline-content">
+                <h4>The TESLA Repair Arc</h4>
+                <p>
+                  As milestones are hit, reveal “repair stages” of the TESLA
+                  and lead up to a major Vault event or narrative climax.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclaimer & Footer -->
+    <section style="margin-top: 40px;">
+      <div class="card">
+        <div class="tag-warning">
+          <span>Warning</span>
+          <span>Read before aping</span>
+        </div>
+        <p style="margin-top: 8px;" class="muted">
+          $A51 is a <strong>meme coin</strong> with no intrinsic value, no
+          promise of financial return, no guarantees, no roadmap obligations and
+          no utility beyond good vibes, lore, community and whatever chaos the
+          team decides to ship. Do not invest more than you can afford to lose.
+          This is entertainment, not financial advice. Alien Musk will absolutely
+          make fun of you if you leverage.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> $A51 • Agents of Area&nbsp;51</div>
+      <div class="footer-links">
+        <a href="#">Telegram</a>
+        <a href="#">X / Twitter</a>
+        <a href="#">Jupiter Link</a>
+        <a href="#">Dexscreener</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // tiny helper for current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
