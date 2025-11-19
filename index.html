@@ -53,13 +53,6 @@
       display: block;
     }
 
-    /* Layout */
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0px 18px 72px;
-    }
-
     header {
       position: sticky;
       top: 0;
@@ -195,14 +188,14 @@
     main {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 28px 18px 72px;
+      padding: 0 18px 72px; /* no top padding so hero sits right under header */
     }
 
     /* HERO VIDEO BANNER */
 
     .hero-video-banner {
       position: relative;
-      margin-top: 18px;
+      margin-top: 0; /* no gap above */
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8);
@@ -228,7 +221,6 @@
       padding: 26px 22px 24px;
     }
 
-    /* Hero grid inside overlay */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
@@ -331,8 +323,6 @@
     .meta-value {
       font-weight: 600;
     }
-
-    /* Hero right card */
 
     .hero-card {
       border-radius: var(--radius-xl);
@@ -457,7 +447,6 @@
       color: #e5e7eb;
     }
 
-    /* Sections */
     section {
       margin-top: 40px;
     }
@@ -527,7 +516,6 @@
       font-size: 0.88rem;
     }
 
-    /* Timeline / roadmap */
     .timeline {
       display: grid;
       gap: 10px;
@@ -570,7 +558,6 @@
       font-size: 0.85rem;
     }
 
-    /* List */
     ul {
       margin-left: 1.1rem;
       font-size: 0.9rem;
@@ -581,7 +568,6 @@
       margin-top: 4px;
     }
 
-    /* Footer */
     footer {
       border-top: 1px solid rgba(148, 163, 184, 0.4);
       margin-top: 40px;
@@ -609,7 +595,6 @@
       color: var(--accent-strong);
     }
 
-    /* Small helper */
     .tag-warning {
       display: inline-flex;
       align-items: center;
@@ -634,10 +619,6 @@
       }
 
       main {
-        padding-inline: 16px;
-      }
-
-      .page {
         padding-inline: 16px;
       }
     }
@@ -670,7 +651,6 @@
     <!-- HERO VIDEO BANNER -->
     <section class="hero-video-banner">
       <video autoplay muted loop playsinline class="hero-video">
-        <!-- Make sure this file sits next to index.html -->
         <source src="IMG_4100.MP4" type="video/mp4" />
       </video>
 
@@ -795,7 +775,7 @@
           <ul style="margin-top: 6px;">
             <li>Decode his 51G transmissions</li>
             <li>Hunt down the seed-words to unlock the Vault</li>
-            <li>Spread the A51 meme across X and Telegram</sli>
+            <li>Spread the A51 meme across X and Telegram</li>
             <li>Enjoy the pure chaos of a horny, arrogant Martian landlord</li>
           </ul>
           <div class="pill-row">
@@ -961,7 +941,7 @@
               <div class="timeline-marker">
                 <div class="timeline-marker-inner"></div>
               </div>
-            <div class="timeline-content">
+              <div class="timeline-content">
                 <h4>Collabs & cross-lore</h4>
                 <p>
                   Integrate with other Solana/Jupiter projects, cross-memes,
@@ -1016,9 +996,7 @@
   </main>
 
   <script>
-    // tiny helper for current year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
