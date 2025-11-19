@@ -80,12 +80,14 @@
 
     .logo-mark {
       width: 32px;
-      height: 32px;
+      aspect-ratio: 1 / 1;
+      height: auto;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 20%, #4ade80, #22c55e 40%, #4c1d95 100%);
       box-shadow: 0 0 18px rgba(34, 197, 94, 0.9);
       position: relative;
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .logo-mark::before {
@@ -767,7 +769,7 @@
             <div class="stat-grid">
               <div class="stat-card">
                 <div class="stat-label">Supply</div>
-                <div class="stat-value">1,000,000,000</div>
+                <div class="stat-value">1 Billion</div>
                 <div class="stat-pill">5,1% Treasury</div>
               </div>
               <div class="stat-card">
@@ -1061,3 +1063,4 @@
   </script>
 </body>
 </html>
+
