@@ -380,31 +380,17 @@
       z-index: 1;
     }
 
+    /* COIN IMAGE / LOGO */
     .coin-preview {
-      border-radius: 999px;
-      aspect-ratio: 1 / 1;
       width: 140px;
-      height: auto;
+      aspect-ratio: 1 / 1;
+      border-radius: 999px;
       margin: 0 auto 10px;
-      background: radial-gradient(circle at 30% 20%, #4ade80, #16a34a 40%, #1e293b 100%);
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.5), 0 0 32px rgba(34, 197, 94, 0.75);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .coin-preview::after {
-      content: "$A51";
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      color: #022c22;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+      object-fit: contain;
+      display: block;
+      background: transparent;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.3),
+                  0 0 32px rgba(34, 197, 94, 0.3);
     }
 
     .hero-card-title {
@@ -711,7 +697,7 @@
       </video>
       <div class="hero-banner-overlay">
         <div class="hero-banner-caption">
-        
+          <!-- optional text here -->
         </div>
       </div>
     </section>
@@ -759,7 +745,7 @@
 
         <aside class="hero-card">
           <div class="hero-card-inner">
-            <div class="coin-preview"></div>
+            <img src="a51-coin.png.png" class="coin-preview" alt="$A51 Coin" />
             <h2 class="hero-card-title">$A51 – AREA 51 MEME COIN</h2>
             <p class="hero-card-sub">
               Born from a crashed T.E.S.L.A. (Trans Extraterrestrial Star-Link
@@ -1061,8 +1047,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
